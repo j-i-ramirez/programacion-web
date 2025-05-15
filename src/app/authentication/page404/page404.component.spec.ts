@@ -1,19 +1,23 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Page404Component } from './page404.component';
+
 describe('Page404Component', () => {
   let component: Page404Component;
   let fixture: ComponentFixture<Page404Component>;
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [Page404Component]
-}).compileComponents();
+      imports: [Page404Component] // Configura el módulo de pruebas
+    }).compileComponents();
   }));
+
   beforeEach(() => {
     fixture = TestBed.createComponent(Page404Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy(); // Prueba básica de creación del componente
   });
 });

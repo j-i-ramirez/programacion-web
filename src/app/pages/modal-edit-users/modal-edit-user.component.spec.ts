@@ -1,29 +1,40 @@
-// Importación de módulos necesarios para realizar pruebas unitarias en Angular.
+// Importa las herramientas necesarias para realizar pruebas unitarias en Angular.
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// Importación del componente que será probado.
+// Importa el componente que se va a someter a pruebas.
 import { ModalEditUsersComponent } from './modal-edit-user.component';
 
-describe('ModalEditUsersComponent', () => { // Define el bloque de pruebas para el componente.
+// Define el grupo de pruebas para el componente ModalEditUsersComponent.
+describe('ModalEditUsersComponent', () => {
 
-  let component: ModalEditUsersComponent; // Almacena la instancia del componente.
-  let fixture: ComponentFixture<ModalEditUsersComponent>; // Permite la interacción con la instancia del componente.
+  // Declara una variable para almacenar la instancia del componente.
+  let component: ModalEditUsersComponent;
 
-  // Configuración inicial antes de ejecutar las pruebas.
+  // Declara una variable para manejar el entorno de pruebas del componente.
+  let fixture: ComponentFixture<ModalEditUsersComponent>;
+
+  // Se ejecuta antes de cada prueba. Configura el entorno necesario.
   beforeEach(async () => {
-    await TestBed.configureTestingModule({ // Configura el entorno de pruebas.
-      imports: [ModalEditUsersComponent] // ⚠️ Posible error: Normalmente se usa "declarations" en lugar de "imports".
+    await TestBed.configureTestingModule({
+      // Registra el componente a probar en el entorno de pruebas.
+      // Esta configuración es válida solo si el componente es standalone.
+      imports: [ModalEditUsersComponent]
     })
-    .compileComponents(); // Compila los componentes antes de ejecutar las pruebas.
+    .compileComponents(); // Compila los componentes declarados o importados.
+    
+    // Crea una instancia del componente y lo asocia al entorno de pruebas.
+    fixture = TestBed.createComponent(ModalEditUsersComponent);
 
-    fixture = TestBed.createComponent(ModalEditUsersComponent); // Crea una instancia del componente.
-    component = fixture.componentInstance; // Asigna la instancia del componente a la variable.
-    fixture.detectChanges(); // Aplica cambios y actualiza la vista del componente.
+    // Obtiene una referencia a la instancia del componente creado.
+    component = fixture.componentInstance;
+
+    // Detecta cambios e inicializa el ciclo de vida del componente.
+    fixture.detectChanges();
   });
 
-  // Prueba para verificar que el componente se crea correctamente.
+  // Prueba que verifica que el componente se ha creado correctamente.
   it('should create', () => {
-    expect(component).toBeTruthy(); // Comprueba que la instancia del componente es válida.
+    expect(component).toBeTruthy(); // Valida que la instancia del componente existe.
   });
 
 });

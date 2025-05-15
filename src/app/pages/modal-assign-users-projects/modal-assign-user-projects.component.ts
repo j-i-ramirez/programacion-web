@@ -1,13 +1,12 @@
-// Importación del módulo necesario para definir un componente en Angular.
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; // Importa el decorador @Component para definir un componente Angular
 
 @Component({
-  selector: 'app-modal-assign-users-projects', // Nombre con el que se usará el componente en el HTML.
-  standalone: true, // Permite que el componente funcione de manera independiente sin necesidad de un módulo.
-  imports: [], // Se pueden agregar módulos necesarios aquí si el componente los requiere.
-  templateUrl: './modal-assign-user-projects.component.html', // Archivo que define la estructura visual del componente.
-  styleUrl: './modal-assign-user-projects.component.scss' // Archivo donde se encuentran los estilos específicos del componente.
+  selector: 'app-modal-assign-users-projects', // Selector HTML que identifica al componente en las plantillas
+  standalone: true, // Indica que este componente es independiente y no requiere ser declarado en un NgModule
+  imports: [], // Lista de módulos que el componente puede usar; vacío por ahora
+  templateUrl: './modal-assign-user-projects.component.html', // Ruta al archivo HTML asociado que define su estructura visual
+  styleUrl: './modal-assign-user-projects.component.scss' // Ruta al archivo SCSS que contiene los estilos específicos del componente
 })
-export class ModalAssignUsersProjectsComponent { // Definición de la clase principal del componente.
-
+export class ModalAssignUsersProjectsComponent {
+  // Clase del componente; aquí se pueden definir propiedades y métodos para manejar la lógica del modal
 }

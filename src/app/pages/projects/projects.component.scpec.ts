@@ -1,29 +1,39 @@
-// Importación de módulos necesarios para realizar pruebas unitarias en Angular.
+// Importa los módulos necesarios para realizar pruebas unitarias en Angular.
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// Importación del componente que será probado.
+// Importa el componente que será objeto de prueba.
 import { ProjectsComponent } from './projects.component';
 
-describe('ProjectsComponent', () => { // Define el bloque de pruebas para el componente.
+// Define el bloque de pruebas para el componente ProjectsComponent.
+describe('ProjectsComponent', () => {
 
-  let component: ProjectsComponent; // Almacena la instancia del componente.
-  let fixture: ComponentFixture<ProjectsComponent>; // Permite la interacción con la instancia del componente.
+  // Variable para almacenar la instancia del componente.
+  let component: ProjectsComponent;
 
-  // Configuración inicial antes de ejecutar las pruebas.
+  // Variable que facilita la interacción con el componente durante las pruebas.
+  let fixture: ComponentFixture<ProjectsComponent>;
+
+  // Se ejecuta antes de cada prueba para configurar el entorno de pruebas.
   beforeEach(async () => {
-    await TestBed.configureTestingModule({ // Configura el entorno de pruebas.
+    await TestBed.configureTestingModule({
+      // Registra el componente para su uso en el entorno de pruebas.
       imports: [ProjectsComponent] 
     })
-    .compileComponents(); // Compila los componentes antes de ejecutar las pruebas.
+    .compileComponents(); // Compila los componentes registrados.
+    
+    // Crea la instancia del componente y lo asocia al entorno de pruebas.
+    fixture = TestBed.createComponent(ProjectsComponent);
 
-    fixture = TestBed.createComponent(ProjectsComponent); // Crea una instancia del componente.
-    component = fixture.componentInstance; // Asigna la instancia del componente a la variable.
-    fixture.detectChanges(); // Aplica cambios y actualiza la vista del componente.
+    // Obtiene la instancia creada del componente.
+    component = fixture.componentInstance;
+
+    // Detecta cambios para inicializar el componente y actualizar su vista.
+    fixture.detectChanges();
   });
 
-  // Prueba para verificar que el componente se crea correctamente.
+  // Prueba para verificar que el componente se crea sin errores.
   it('should create', () => {
-    expect(component).toBeTruthy(); // Comprueba que la instancia del componente es válida.
+    expect(component).toBeTruthy(); // Verifica que la instancia del componente no sea nula o indefinida.
   });
 
 });

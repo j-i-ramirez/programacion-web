@@ -1,29 +1,27 @@
-// Importación de módulos necesarios 
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'; // Herramientas para configurar y manipular pruebas unitarias
 
-// Importación del componente que será probado.
-import { ModalAssignUsersProjectsComponent } from './modal-assign-user-projects.component';
+import { ModalAssignUsersProjectsComponent } from './modal-assign-user-projects.component'; // Componente a testear
 
-describe('ModalAssignUsersProjectsComponent', () => { // Definición del bloque de pruebas para el componente.
+describe('ModalAssignUsersProjectsComponent', () => {
 
-  let component: ModalAssignUsersProjectsComponent; // Variable que almacena la instancia del componente.
-  let fixture: ComponentFixture<ModalAssignUsersProjectsComponent>; // Permite la interacción con la instancia del componente.
+  let component: ModalAssignUsersProjectsComponent; // Instancia del componente
+  let fixture: ComponentFixture<ModalAssignUsersProjectsComponent>; // Entorno de pruebas para acceder al DOM y al componente
 
-  // Configuración inicial antes de ejecutar las pruebas.
   beforeEach(async () => {
-    await TestBed.configureTestingModule({ // Configura el entorno de pruebas.
-      imports: [ModalAssignUsersProjectsComponent] //  Posible error: Normalmente se usa "declarations" en lugar de "imports".
-    })
-    .compileComponents(); // Compila los componentes antes de ejecutar las pruebas.
+    // Configura el módulo de pruebas con los recursos necesarios
+    await TestBed.configureTestingModule({
+      imports: [ModalAssignUsersProjectsComponent] // Este uso sugiere que el componente es standalone (no necesita declarations)
+    }).compileComponents(); // Compila los componentes y plantillas para usarlos en las pruebas
 
-    fixture = TestBed.createComponent(ModalAssignUsersProjectsComponent); // Crea una instancia del componente.
-    component = fixture.componentInstance; // Asigna la instancia del componente a la variable.
-    fixture.detectChanges(); // Aplica cambios y actualiza la vista del componente.
+    // Crea una instancia del componente en el entorno de prueba
+    fixture = TestBed.createComponent(ModalAssignUsersProjectsComponent);
+    component = fixture.componentInstance; // Obtiene la instancia del componente
+    fixture.detectChanges(); // Ejecuta la detección de cambios inicial para actualizar el DOM
   });
 
-  // Prueba para verificar que el componente se crea correctamente.
   it('should create', () => {
-    expect(component).toBeTruthy(); // Comprueba que la instancia del componente es válida.
+    // Verifica que el componente haya sido instanciado correctamente
+    expect(component).toBeTruthy();
   });
 
 });
