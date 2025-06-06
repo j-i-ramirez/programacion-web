@@ -9,15 +9,16 @@ import { HeaderComponent } from '../../header/header.component';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
 
 @Component({
-    selector: 'app-main-layout',
-    templateUrl: './main-layout.component.html',
-    styleUrls: [],
-    imports: [
-        HeaderComponent,
-        SidebarComponent,
-        BidiModule,
-        RouterOutlet,
-    ]
+  selector: 'app-main-layout',
+  templateUrl: './main-layout.component.html',
+  styleUrls: [],
+  standalone: true,
+  imports: [
+    HeaderComponent,
+    SidebarComponent,
+    BidiModule,
+    RouterOutlet,
+  ],
 })
 export class MainLayoutComponent extends UnsubscribeOnDestroyAdapter implements AfterViewInit {
   direction!: Direction;

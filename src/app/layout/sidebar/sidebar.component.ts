@@ -24,17 +24,18 @@ import { UnsubscribeOnDestroyAdapter } from '@shared';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-sidebar',
-    templateUrl: './sidebar.component.html',
-    styleUrls: ['./sidebar.component.scss'],
-    imports: [
-        NgScrollbar,
-        MatButtonModule,
-        RouterLink,
-        MatTooltipModule,
-        RouterLinkActive,
-        NgClass,
-    ]
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
+  standalone: true,
+  imports: [
+    NgScrollbar,
+    MatButtonModule,
+    RouterLink,
+    MatTooltipModule,
+    RouterLinkActive,
+    NgClass,
+  ],
 })
 export class SidebarComponent
   extends UnsubscribeOnDestroyAdapter
@@ -68,8 +69,8 @@ export class SidebarComponent
         this._renderer.removeClass(this._document.body, 'overlay-open');
       }
     });
-    const roleInfo = this._authService.getRoleInfoByToken();
-    this.userLogged = roleInfo ? roleInfo.roleName : undefined;
+    // const roleInfo = this._authService.getRoleInfoByToken();
+    // this.userLogged = roleInfo ? roleInfo.roleName : undefined;
   }
   @HostListener('window:resize', ['$event'])
   windowResizecall() {
@@ -118,7 +119,7 @@ export class SidebarComponent
     const rolAuthority = this._authService.getAuthFromSessionStorage().rol_id;
     this.sidebarItems = ROUTES.filter((sidebarItem) => sidebarItem?.rolAuthority.includes(rolAuthority));
     this.initLeftSidebar();
-    this.bodyTag = this._document.body;
+    this.bodyTag = this._document.body; // Manipular los estilos generales
   }
 
 

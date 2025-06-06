@@ -4,7 +4,7 @@
  *  Description: This scss file for style related to calendar app
  */
 
- #event_title {
+#event_title {
   font-size: 1.2rem;
 }
 
@@ -179,13 +179,13 @@
 
     th {
       border-color: #ddd;
-      color: fontdark !important;
+      color: color(fontdark) !important;
       font-weight: 500;
       padding: 15px;
     }
   }
 
-  color: fontdark !important;
+  color: color(fontdark) !important;
   font-weight: 500;
   padding: 10px;
 
@@ -271,7 +271,7 @@ tr:first-child > td > .fc-day-grid-event {
   border-radius: 0;
 
   &.fc-state-active {
-    background-color: primary;
+    background-color: color(primary);
     color: #fff;
   }
 }

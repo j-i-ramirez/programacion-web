@@ -1,5 +1,11 @@
 import { DOCUMENT, NgClass } from '@angular/common';
-import {Component,Inject,ElementRef,OnInit,Renderer2,} from '@angular/core';
+import {
+  Component,
+  Inject,
+  ElementRef,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ConfigService } from '@config';
 import { InConfiguration, AuthService } from '@core';
@@ -8,16 +14,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    imports: [
-        RouterLink,
-        NgClass,
-        MatButtonModule,
-        MatMenuModule,
-        FeatherIconsComponent,
-    ]
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  standalone: true,
+  imports: [
+    RouterLink,
+    NgClass,
+    MatButtonModule,
+    MatMenuModule,
+    FeatherIconsComponent,
+  ],
 })
 export class HeaderComponent implements OnInit {
   public config!: InConfiguration;
@@ -34,13 +41,13 @@ export class HeaderComponent implements OnInit {
     private readonly router: Router
   ) {
     this.userLogged = this.authService.getAuthFromSessionStorage().nombre;
-   }
+  }
 
-   userLogged: string | undefined = '';
-   
-  ngOnInit() {
+  userLogged: string | undefined = '';
+  
+  ngOnInit() { // Se ejecuta una sola vez cuando inicia el programa
     this.config = this.configService.configData;
-    this.docElement = document.documentElement;
+    this.docElement = document.documentElement; // Permite el acceso al Doc para manipular todo el HTML
   }
 
   callFullscreen() {
@@ -77,6 +84,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logout(); // Va ha redirigir a lugar que queramoss
   }
 }
